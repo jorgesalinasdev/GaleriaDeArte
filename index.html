@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- aclarar profesor que entiendo la estructuracion y semantica de HTML de esta página lo que corresponde a esta unidad en cual agrege imagenes y mas texto personalizado
+,la ayuda de la inteligencia artifical solo fue para dar estilo agradable, y funcionalidad con script para no crear 3 paginas en distintos archivos por ejemplo:
+
+index.html
+galeria.html
+contacto.html  
+
+cabe mencionar que estos agregados de css y javascript por IA aun no los comprendo del todo, pero si comprendo la estructura de Html -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imgs/lienzo.png" type="image/x-icon">
+    <title>Galería de Arte Abstracto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #800080; /* Purple */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        body::after {
+            content: "";
+            background: url('./imgs/fondo\ \(1\).webp') repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;   
+            filter: blur(5px);
+        }
+        .galeria {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .galeria img {
+            margin: 5px;
+            max-width: 200px;
+            border: 5px solid #9370db; /* Medium Purple */
+        }
+        .formulario {
+            display: none;
+        }
+        .formulario input, .formulario textarea {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #800080; /* Purple */
+        }
+        .formulario input[type="submit"] {
+            background-color: #9370db; /* Medium Purple */
+            color: white;
+            cursor: pointer;
+        }
+        .formulario input[type="submit"]:hover {
+            background-color: #800080; /* Purple */
+        }
+        .pagina-activa {
+            display: block;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #9370db; /* Medium Purple */
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function cambiarPagina(pagina) {
+            var paginas = document.getElementsByClassName('pagina');
+            for (var i = 0; i < paginas.length; i++) {
+                paginas[i].classList.remove('pagina-activa');
+            }
+            document.getElementById(pagina).classList.add('pagina-activa');
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <button onclick="cambiarPagina('inicio')">Inicio</button>
+        <button onclick="cambiarPagina('galeria')">Galería</button>
+        <button onclick="cambiarPagina('contacto')">Contacto</button>
+    </nav>
+
+    <div class="content">
+        <div id="inicio" class="pagina pagina-activa">
+            <h1>Bienvenido a la Galería de Arte Abstracto 🧐🎨</h1>
+            <p>Esta es una colección de arte abstracto recopilada por Jorge.</p>
+        </div>
+
+        <div id="galeria" class="pagina galeria">
+            <h2>Galería</h2>
+            <img src="./imgs/1.jpg" alt="Imagen 1">
+            <img src="./imgs/2.webp" alt="Imagen 2">
+            <img src="./imgs/3.jpg" alt="Imagen 3">
+            <img src="./imgs/4.jpg" alt="Imagen 4">
+            <img src="./imgs/fondo (2).webp" alt="Imagen 5">
+        </div>
+
+        <div id="contacto" class="pagina formulario">
+            <h2>Contacto</h2>
+            <p>Hola! soy jorge salinas si quieres contactarme solo rellena este formulario, saludos 😊✌</p>
+            <form>
+                <input type="text" name="nombre" placeholder="Tu nombre">
+                <input type="email" name="email" placeholder="Tu correo electrónico">
+                <textarea name="mensaje" placeholder="Tu mensaje"></textarea>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+    <footer class="footer">
+        hecho con ❤️ por jorge / pagina creada con ayuda de IA
+    </footer>
+</body>
+</html>
